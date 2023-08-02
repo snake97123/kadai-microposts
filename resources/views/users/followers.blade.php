@@ -7,8 +7,9 @@
         </aside>
         <div class="sm:col-span-2 mt-4">
             @include('users.navtabs')
-            @include('microposts.form')
-            @include('microposts.microposts')
+            <div class="mt-4">
+                @include('users.users')
+            </div>
         </div>
     </div>
 @endsection
