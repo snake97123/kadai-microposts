@@ -26,6 +26,20 @@
                             </form>
                             @endif
                     </div>
+                    <div>
+                        @if (Auth::user()->is_favoriting($micropost))
+                            <form method="POST" action="{{ route('favorites.unfavorite', $micropost->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-warning btn-sm normal-case">Unfavorite</button>
+                            </form>
+                       @else
+                            <form method="POST" action="{{ route('favorites.favorite', $micropost->id) }}">
+                                @csrf
+                                <button type="submit" class="btn btn-primary btn-sm normal-case">Favorite</button>
+                           </form>
+                       @endif
+                    </div>
                 </div>
             </li>
             @endforeach
